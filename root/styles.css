@@ -1,0 +1,479 @@
+/* styles.css */
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.header-top {
+  background-color: #ff000000;
+  color: #fff;
+  text-align: center;
+  font-size: 14px;
+  padding: 1px 0;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center; /* centers horizontally */
+  align-items: center;
+  flex: 1;
+}
+
+.header-main {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 5%;
+  background-color: #fff; /* Optional: make sure it's visible */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.507); /* Optional soft shadow */
+  border-bottom: 1px solid #000000; /* 👈 This adds the visible border */
+}
+
+
+.logo img {
+  height: 60px;
+}
+
+.nav ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #000;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+.nav a:hover {
+  color: #ff4d00;
+}
+
+.header-icons a {
+  margin-left: 15px;
+}
+
+.header-icons img {
+  height: 24px;
+  width: 24px;
+}
+
+.header-icons {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  gap: 20px;
+}
+
+.header-icons a img {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: #fff;
+  border-bottom: 2px solid #ccc;
+}
+
+
+.cart-icon {
+  position: fixed;
+  top: 20px;
+  right: 15px;
+  z-index: 1000;
+  cursor: pointer;
+}
+
+#cart-count {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: red;
+  color: white;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 12px;
+}
+
+
+.cart-panel {
+  position: fixed;
+  right: 20px;
+  top: 80px;
+  width: 300px;
+  background: white;
+  border: 1px solid #ccc;
+  padding: 15px;
+  display: none;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.search-trigger {
+  position: fixed;
+  top: 20px;
+  right: 100px;
+  z-index: 1000;
+  cursor: pointer;
+}
+
+.search-bar {
+  position: fixed;
+  top: 60px;
+  right: 103px;
+  background: white;
+  padding: 8px 20px;
+  border: 1px solid #000000;
+  border-radius: 20px;
+  display: none;
+  z-index: 1000;
+}
+
+.search-bar input {
+  border: none;
+  outline: none;
+  font-size: 14px;
+}
+
+
+.wishlist-icon {
+  position: fixed;
+  top: 20px;
+  right: 55px; /* 👈 adjust position relative to cart */
+  z-index: 1000;
+  cursor: pointer;
+}
+
+#wishlist-count {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: red;
+  color: white;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 12px;
+}
+
+.wishlist-panel {
+  position: fixed;
+  top: 80px;
+  right: 0;
+  width: 300px;
+  background: white;
+  border: 1px solid #ccc;
+  padding: 15px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  transform: translateX(100%); /* 👈 Hidden off-screen by default */
+  transition: transform 0.3s ease;
+  z-index: 1000;
+}
+
+.wishlist-panel.active {
+  transform: translateX(0); /* 👈 Slides into view */
+}
+
+.social-links {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.social-icon {
+  position: relative;
+  display: inline-block;
+}
+
+.social-icon img {
+  width: 28px;   /* 👈 Force same width */
+  height: 28px;  /* 👈 Force same height */
+  vertical-align: middle;
+}
+
+.icon-color {
+  display: none;
+}
+
+.social-icon:hover .icon-black {
+  display: none;
+}
+
+.social-icon:hover .icon-color {
+  display: inline;
+}
+
+.category-nav {
+  background-color: #000000;
+  border-bottom: 2px solid #610b0b;
+  padding: 12px 0;
+  text-align: center;
+  position: static;
+  top: 80px; /* adjust if your header is fixed */
+  z-index: 999;
+}
+
+.category-nav ul {
+  list-style: none; /* removes bullets/dots */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+}
+
+.category-nav a {
+  position: relative;
+  text-decoration: none;
+  font-weight: 600;
+  color: #ffffff;
+  font-size: 16px;
+  transition: color 0.3s;
+}
+
+.category-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 2px;
+  background-color: #ff4d00;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+  transform-origin: left;
+}
+
+.category-nav a:hover {
+  color: #fffb00; /* highlight color on hover */
+}
+
+
+.category-nav a:hover::after {
+  transform: scaleX(1);
+} 
+
+html {
+  scroll-behavior: smooth;
+}
+
+.promo-banner {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* full screen height */
+  overflow: hidden;
+}
+
+.promo-banner img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* fills and crops nicely */
+  z-index: 1;
+}
+
+
+.promo-text {
+  position: relative;
+  z-index: 2;
+  color: white;
+  text-align: left;
+  padding: 60px;
+}
+
+.promo-text h1 {
+  font-size: 40px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.promo-text p {
+  font-size: 20px;
+}
+
+.promo-image {
+  flex: 1;
+  min-width: 280px;
+  text-align: center;
+}
+
+.promo-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+h1, h2 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+}
+
+p {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+}
+
+
+/* Header container */
+.category-header {
+  text-align: center;
+  padding: 40px 5%;
+  background-color: #ffffff00; /* change or remove if you don't want this bg */
+}
+
+/* Title row with gold lines */
+.category-header .title-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+.category-header .title-wrapper .line {
+  width: 200px;               /* short gold line */
+  height: 2px;
+  background: linear-gradient(to right, #d4af37, #ffd700);
+  border-radius: 5px;
+}
+
+.category-header h4 {
+  font-size: 13px;           /* small title */
+  font-weight: 750;
+  color: #000000;
+  margin: 0;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* Subtitle */
+.category-header h2 {
+  font-size: 22px;           /* normal size under it */
+  font-weight: 600;
+  color: #222;
+  margin: 0 0 20px 0;
+}
+
+/* Button row */
+.category-header .category-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px 24px;             /* more space between buttons (row x column) */
+}
+
+/* Button style: clean pills (outlined) */
+.category-header .category-actions button {
+  appearance: none;
+  background: #fff;
+  color: #000000;
+  border: 2px solid #000000;  /* gold outline */
+  padding: 10px 18px;         /* more space inside each button */
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 4500px;       /* pill shape */
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.category-header .category-actions button:hover {
+  background: #75414165;       /* subtle gold-tint hover */
+  border-color: #c8a437;
+}
+
+/* Optional: icon color tweak */
+.category-header .category-actions i {
+  color: #000000;
+  font-size: 16px;
+}
+
+.product-row {
+  display: flex;
+  gap: 30px;
+  padding: 40px 5%;
+  overflow-x: auto; /* enables horizontal scroll if needed */
+}
+
+.product-card {
+  flex: 0 0 250px; /* fixed width for each card */
+  position: relative;
+  padding: 16px;
+  text-align: center;
+  border: 1px solid #000000;
+  border-radius: 10px;
+  background-color: #fff;
+  transition: box-shadow 0.3s ease;
+}
+
+.product-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.product-card .info {
+  background-color: #ffffff;
+  padding: 12px;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.product-card h3 {
+  font-size: 16px;
+  font-weight: 500;
+  margin: 12px 0 4px;
+  color: #333;
+}
+
+.product-card .price {
+  font-size: 14px;
+  color: #d32f2f;
+  margin-bottom: 10px;
+}
+
+.select-btn {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #0f9652;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.product-card:hover .info {
+  transform: translateY(-60px);
+}
+
+.product-card:hover .select-btn {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.product-card:hover {
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.658);
+}
+
+
+
